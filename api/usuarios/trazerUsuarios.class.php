@@ -25,9 +25,9 @@ if($api_acao == 'consultarTodos' and $api_param == '') {
 
 
 //CONSULTA UM USUARIO ESPECÍFICO.
-if($api_acao == 'consultar' and $api_param != '') {
+if($api_acao == 'consultar' and $api_param != '') { //ID do usuario
     $db = DB::connect();
-    $request = $db->prepare("SELECT * FROM usuarios WHERE usuario={$api_param}");
+    $request = $db->prepare("SELECT * FROM usuarios WHERE id={$api_param}");
     $request->execute(); //executa o request DBO
 
     $resultado = $request->fetchObject();
