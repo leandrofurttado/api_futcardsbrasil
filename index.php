@@ -5,7 +5,6 @@ header('Content-Type: Application/json');
 
 date_default_timezone_set("America/Sao_Paulo");
 
-
 // $caminho_api = explode("/", $_GET['path']); //pega o path do .htaccess e pega todo o diretorio da url após o nome do projeto
 
 
