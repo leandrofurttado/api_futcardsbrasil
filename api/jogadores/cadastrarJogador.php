@@ -34,6 +34,6 @@ if($api_acao == 'cadastrarJogador' and $api_param == '') {
     } else {
         echo json_encode(["mensagem" => 'Jogador não encontrado!']);
     }
-} else {
+} else if ($api_acao == 'cadastrarJogador' and $api_param != ''){
     echo json_encode(["mensagem" => "Error!"]);
 }
