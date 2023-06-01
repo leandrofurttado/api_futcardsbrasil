@@ -1,7 +1,7 @@
 <?php
 
 if($api_acao == '') {
-    echo json_encode(["ERROR:" => "Caminho não existe! Comunique o Leandro."]);
+    echo json_encode(["mensagem" => "Caminho não existe! Comunique o Leandro."]);
 }
 
 //CONSULTA TODOS OS USUARIOS
@@ -22,9 +22,9 @@ if($api_acao == 'cadastrar' and $api_param == '') {
 
 
     if($execucao) {
-        echo json_encode(["dados_cadastro" => "Cadastro foi realizado com sucesso!"]);
+        echo json_encode(["mensagem" => "Cadastro foi realizado com sucesso!"]);
     } else {
-        echo json_encode(["dados_cadastro" => 'Houve um erro ao cadastrar!']);
+        echo json_encode(["mensagem" => 'Houve um erro ao cadastrar!']);
     }
 
 }

@@ -2,12 +2,12 @@
 
 
 if($api_acao == '') {
-    echo json_encode(["ERROR:" => "Caminho não existe! Comunique o Leandro."]);
+    echo json_encode(["mensagem" => "Caminho não existe! Comunique o Leandro."]);
 }
 
 //CONSULTA TODOS OS USUARIOS
 if($api_acao == 'alterarSenha' and $api_param == '') {
-    echo json_encode(["dados_usuarios" => 'Usuário não encontrado! Informe-o ou contacte o Leandro.']);
+    echo json_encode(["mensagem" => 'Usuário não encontrado! Informe-o ou contacte o Leandro.']);
 //Foi realizado essa verificação pois é obrigatório passar params
 }
 
@@ -24,16 +24,16 @@ if($api_acao == 'alterarSenha' and $api_param != ''){  //ID
     $execucao = $request->execute();
 
     if($execucao) {
-        echo json_encode(["dados_cadastro" => "A senha foi alterada com sucesso!"]);
+        echo json_encode(["mensagem" => "A senha foi alterada com sucesso!"]);
     } else {
-        echo json_encode(["dados_cadastro" => 'Houve um erro ao alterar sua senha!']);
+        echo json_encode(["mensagem" => 'Houve um erro ao alterar sua senha!']);
     }
 }
 
 
 
 if($api_acao == 'alterarEmail' and $api_param == '') {
-    echo json_encode(["dados_usuarios" => 'Usuário não encontrado! Informe-o ou contacte o Leandro.']);
+    echo json_encode(["mensagem" => 'Usuário não encontrado! Informe-o ou contacte o Leandro.']);
 //Foi realizado essa verificação pois é obrigatório passar params
 }
 
@@ -55,12 +55,12 @@ if($api_acao == 'alterarEmail' and $api_param != ''){  //ID
 
     if ($execucao) {
         if ($request->rowCount() > 0) {
-            echo json_encode(["dados_cadastro" => "O e-mail foi alterado com sucesso!"]);
+            echo json_encode(["mensagem" => "O e-mail foi alterado com sucesso!"]);
         } else {
-            echo json_encode(["dados_cadastro" => 'Esse usuario não existe!']);
+            echo json_encode(["mensagem" => 'Esse usuario não existe!']);
         }
     } else {
-        echo json_encode(["dados_cadastro" => 'Houve um erro ao alterar esse e-mail!']);
+        echo json_encode(["mensagem" => 'Houve um erro ao alterar esse e-mail!']);
     }
 
 }

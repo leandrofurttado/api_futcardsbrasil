@@ -3,9 +3,19 @@
 
 
 if($api_acao == '') {
-    echo json_encode(["ERROR:" => "Caminho não existe! Comunique o Leandro."]);
+    echo json_encode(["mensagem" => "Caminho não existe! Comunique o Leandro."]);
 }
 
+if($api_acao == 'teste' and $api_param == '') {
+    $db = DB::connect(); //esse DB vem das classes
+    $request = $db->prepare("SELECT email FROM usuarios WHERE id='1'");
+    $request->execute(); //executa o request DBO
+
+    $resultado = $request->fetchObject();
+    
+    echo $resultado[0];
+
+}
 
 
 //CONSULTA TODOS OS USUARIOS
@@ -17,9 +27,9 @@ if($api_acao == 'consultarTodos' and $api_param == '') {
     $resultado = $request->fetchAll(PDO::FETCH_ASSOC);
 
     if($resultado) {
-        echo json_encode(["dados_usuarios" => $resultado]);
+        echo json_encode($resultado);
     } else {
-        echo json_encode(["dados_usuarios" => 'Usuário não encontrado!']);
+        echo json_encode(["mensagem" => 'Usuário não encontrado!']);
     }
 }
 
@@ -33,8 +43,8 @@ if($api_acao == 'consultar' and $api_param != '') { //ID do usuario
     $resultado = $request->fetchObject();
 
     if($resultado) {
-        echo json_encode(["dados_usuarios" => $resultado]);
+        echo json_encode($resultado);
     } else {
-        echo json_encode(["dados_usuarios" => 'Usuário não encontrado!']);
+        echo json_encode(["mensagem" => 'Usuário não encontrado!']);
     }
 }
