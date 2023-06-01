@@ -3,15 +3,15 @@
 //ARQUIVO PARA TRABALHAR COM GET DO SISTEMA
 
 if($api_acao == '') {
-    echo json_encode(["mensagem" => "Caminho não existe! Comunique o Leandro."]);
+    echo json_encode(["mensagem" => "Caminho não existe! Comunique o Leeeeandro."]);
 }
 
 
 //CONSULTA TODOS OS USUARIOS
 
-if($api_acao == 'consultarTodos' and $api_param == '') {
+if($api_acao == 'consultarJogadoresTodos' and $api_param == '') {
     $db = DB::connect(); //esse DB vem das classes
-    $request = $db->prepare("SELECT * FROM usuarios ORDER BY username");
+    $request = $db->prepare("SELECT * FROM jogadores");
     $request->execute(); //executa o request DBO
 
     $resultado = $request->fetchAll(PDO::FETCH_ASSOC);
@@ -19,7 +19,7 @@ if($api_acao == 'consultarTodos' and $api_param == '') {
     if($resultado) {
          echo json_encode($resultado);
     } else {
-        echo json_encode(["mensagem" => 'Usuário não encontrado!']);
+        echo json_encode(["mensagem" => 'Erro ao trazer os jogadores!']);
     }
 }
 
