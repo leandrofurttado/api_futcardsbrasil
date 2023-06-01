@@ -43,3 +43,4 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 include_once "classes/db.class.php";
 include_once "api/usuarios/usuarios.php";
+include_once "api/jogadores/jogadores.php";

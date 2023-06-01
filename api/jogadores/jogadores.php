@@ -10,7 +10,7 @@ if($api_request == 'jogadores') {
     }
 
     if($method == "POST") {
-        include_once("cadastrarUsuarios.class.php");
+        include_once("cadastrarJogador.php");
     }
 
     //PARA TRABALHAR COM PUT(UPDATE) EM PHP É NECESSÁRIO NO FORM QUE FOR REALIZAR A REQUISIÇÃO PASSAR UM CAMPO COM O NOME
@@ -27,5 +27,4 @@ if($api_request == 'jogadores') {
 
     }
 } else {
-    echo json_encode("Caminho não existe! Comunique o Leandro.");
 }

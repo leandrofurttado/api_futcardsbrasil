@@ -3,16 +3,16 @@
 //ARQUIVO PARA TRABALHAR COM GET DO SISTEMA
 
 if($api_acao == '') {
-    echo json_encode(["mensagem" => "Caminho não existe! Comunique o Leeeeandro."]);
+    echo json_encode(["mensagem" => "Caminho não existe! Comunique o Leandro."]);
 }
 
 
-//CONSULTA TODOS OS USUARIOS
+//CONSULTA TODOS OS JOGADORES
 
 if($api_acao == 'consultarJogadoresTodos' and $api_param == '') {
     $db = DB::connect(); //esse DB vem das classes
     $request = $db->prepare("SELECT * FROM jogadores");
-    $request->execute(); //executa o request DBO
+    $request->execute(); 
 
     $resultado = $request->fetchAll(PDO::FETCH_ASSOC);
 
@@ -23,19 +23,18 @@ if($api_acao == 'consultarJogadoresTodos' and $api_param == '') {
     }
 }
 
-//CONSULTA UM USUARIO ESPECÍFICO.
-// TODO fazer tela de PERFIL (todos os dados incluindo fotos.)
-if($api_acao == 'consultar' and $api_param != '') { //ID do usuario
+//CONSULTA UM JOGADOR ESPECÍFICO.
+if($api_acao == 'getJogador' and $api_param != '') { //ID do usuario
     $db = DB::connect();
-    $request = $db->prepare("SELECT * FROM usuarios WHERE id={$api_param}");
-    $request->execute(); //executa o request DBO
+    $request = $db->prepare("SELECT * FROM jogadores WHERE id={$api_param}");
+    $request->execute(); 
 
     $resultado = $request->fetchObject();
 
     if($resultado) {
         echo json_encode($resultado);
     } else {
-        echo json_encode(["mensagem" => 'Usuário não encontrado!']);
+        echo json_encode(["mensagem" => 'Jogador não encontrado!']);
     }
 
 }
