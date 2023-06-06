@@ -1,6 +1,7 @@
 <?php 
-
-//ARQUIVO PARA TRABALHAR COM GET DO SISTEMA
+header('Access-Control-Allow-Origin: *'); //configuração para permitir acessos de outros sites nesse site(api) *API LIBERADA PARA TODOS*
+//exportação (RETORNO) em json
+header('Content-Type: Application/json'); 
 
 if($api_acao == '') {
     echo json_encode(["mensagem" => "Caminho não existe! Comunique o Leandro."]);

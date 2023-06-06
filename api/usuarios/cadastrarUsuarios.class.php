@@ -1,6 +1,7 @@
 <?php
-
-
+header('Access-Control-Allow-Origin: *'); //configuração para permitir acessos de outros sites nesse site(api) *API LIBERADA PARA TODOS*
+//exportação (RETORNO) em json
+header('Content-Type: Application/json'); 
 
 if($api_acao == '') {
 
