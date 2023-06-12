@@ -18,12 +18,12 @@ if($api_acao == 'login' and $api_param == '') {
     $db = DB::connect(); //esse DB vem das classes
     $request = $db->prepare($query);
     $request->execute(); 
-    $resultado = $request->fetchObject();
+    $resultado = $request->fetchAll();
 
     if($resultado != false) {
-        echo json_encode(["mensagem" => "Login efetuado com sucesso!", 'sucesso']);
+        echo json_encode(["mensagem" => $resultado[0]["id"], 'sucesso']);
     } else {
-        echo json_encode(["mensagem" => 'Usuário não encontrado!', 'erro']);
+        echo json_encode(["mensagem" => 'Usuario não encontrado!', 'erro']);
     }
 
 
