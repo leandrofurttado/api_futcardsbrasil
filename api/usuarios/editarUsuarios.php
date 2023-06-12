@@ -53,11 +53,11 @@ if($api_acao == 'alterarSenha' and $api_param != ''){  //ID
 
     if($execucao) {
 
-        echo json_encode(["mensagem" => "A senha foi alterada com sucesso!"]);
+        echo json_encode(["mensagem" => "A senha foi alterada com sucesso!", "sucesso"]);
 
     } else {
 
-        echo json_encode(["mensagem" => 'Houve um erro ao alterar sua senha!']);
+        echo json_encode(["mensagem" => 'Houve um erro ao alterar sua senha!', "erro"]);
 
     }
 

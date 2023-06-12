@@ -28,8 +28,8 @@ if($api_acao == 'cadastrar' and $api_param == '') {
     $execucao = $request->execute(); //executa o request DBO
 
     if($execucao) {
-        echo json_encode(["mensagem" => "Cadastro foi realizado com sucesso!"]);
+        echo json_encode(["mensagem" => "Cadastro foi realizado com sucesso!", "sucesso"]);
     } else {
-        echo json_encode(["mensagem" => 'Houve um erro ao cadastrar!']);
+        echo json_encode(["mensagem" => "Houve um erro ao cadastrar!", "erro"]);
     }
 }

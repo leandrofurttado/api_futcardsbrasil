@@ -22,12 +22,12 @@ if($api_request == 'jogadores') {
     // "_method = 'PUT';" que irá cair na verificação abaixo. (Php nao se usa PUT)
 
     if($method == "POST" && isset($_POST['_method']) == "PUT") {
-        include_once("editarUsuarios.class.php");
+        include_once("editarUsuarios.php");
     }
 
     if($method == "POST") {
 
-        include_once("loginUsuarios.class.php");
+        include_once("loginUsuarios.php");
 
     }
 } else {

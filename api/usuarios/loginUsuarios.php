@@ -21,9 +21,9 @@ if($api_acao == 'login' and $api_param == '') {
     $resultado = $request->fetchObject();
 
     if($resultado != false) {
-        echo json_encode(["mensagem" => "Usuario encontrado (Login sucesso)!", 'sucesso']);
+        echo json_encode(["mensagem" => "Login efetuado com sucesso!", 'sucesso']);
     } else {
-        echo json_encode(["mensagem" => 'Houve um erro ao LOGAR!', 'erro']);
+        echo json_encode(["mensagem" => 'Usuário não encontrado!', 'erro']);
     }
 
 

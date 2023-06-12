@@ -11,7 +11,7 @@ if($api_request == 'usuarios') {
 
     if($method == "GET") {
 
-        include_once("trazerUsuarios.class.php");
+        include_once("trazerUsuarios.php");
 
     }
 
@@ -19,7 +19,7 @@ if($api_request == 'usuarios') {
 
     if($method == "POST") {
 
-        include_once("cadastrarUsuarios.class.php");
+        include_once("cadastrarUsuarios.php");
 
     }
 
@@ -29,7 +29,7 @@ if($api_request == 'usuarios') {
 
     if($method == "POST" && isset($_POST['_method']) == "PUT") {
 
-        include_once("editarUsuarios.class.php");
+        include_once("editarUsuarios.php");
 
     }
 
@@ -37,7 +37,7 @@ if($api_request == 'usuarios') {
 
     if($method == "POST") {
 
-        include_once("loginUsuarios.class.php");
+        include_once("loginUsuarios.php");
 
     }
 
