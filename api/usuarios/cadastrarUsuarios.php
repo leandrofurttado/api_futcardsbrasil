@@ -15,6 +15,9 @@ if($api_acao == '') {
 
 //CONSULTA TODOS OS USUARIOS
 if($api_acao == 'cadastrar' and $api_param == '') {
+
+    $_POST['credits'] = 0;
+    
     //CRIANDO A QUERY DE CADASTRO
     $query = "INSERT INTO usuarios (";
     $query .= implode(',', array_keys($_POST));
