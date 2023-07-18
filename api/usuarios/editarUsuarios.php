@@ -61,7 +61,38 @@ if($api_acao == 'alterarSenha' and $api_param != ''){  //ID
 
     }
 
+
 }
+
+if($api_acao == 'editar' and $api_param != ''){  //ID
+    array_shift($_POST); //--> Faz a remoção da variavel _method
+
+    if(isset($_POST['nova_foto']) and isset($_POST['nome_completo'])) {
+        $query = "UPDATE usuarios SET imageBase64 = '{$_POST['nova_foto']}', nome_completo = '{$_POST['nome_completo']}' WHERE id=$api_param";
+    }
+
+    if(isset($_POST['nova_foto']) and !isset($_POST['nome_completo'])) {
+        $query = "UPDATE usuarios SET imageBase64 = '{$_POST['nova_foto']}' WHERE id=$api_param";
+    }
+
+    if(!isset($_POST['nova_foto']) and isset($_POST['nome_completo'])) {
+        $query = "UPDATE usuarios SET nome_completo = '{$_POST['nome_completo']}' WHERE id=$api_param";
+    }
+
+    $db = DB::connect();
+    $request = $db->prepare($query);
+    $execucao = $request->execute();
+
+    if($execucao) {
+        echo json_encode(["mensagem" => "Os dados foram editados com sucesso!", "sucesso"]);
+    } else {
+        echo json_encode(["mensagem" => 'Houve um erro ao editar seus dados!', "erro"]);
+    }
+
+}
+
+
+
 
 
 
