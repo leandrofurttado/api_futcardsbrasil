@@ -27,17 +27,23 @@ if($api_request == 'usuarios') {
 
     // "_method = 'PUT';" que irá cair na verificação abaixo. (Php nao se usa PUT)
 
-    if($method == "POST" && isset($_POST['_method']) == "PUT") {
+/*     if($method == "POST" && isset($_POST['_method']) == "PUT") {
 
         include_once("editarUsuarios.php");
 
     }
-
+ */
 
 
     if($method == "POST") {
 
         include_once("loginUsuarios.php");
+
+    }
+
+    if($method == "POST") {
+
+        include_once("editarUsuarios.php");
 
     }
 
