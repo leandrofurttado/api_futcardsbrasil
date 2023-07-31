@@ -33,12 +33,13 @@ if($api_acao == 'consultar' and $api_param != '') { //ID do usuario
     $request = $db->prepare("SELECT * FROM usuarios WHERE id={$api_param}");
     $request->execute(); //executa o request DBO
 
-    $resultado = $request->fetchObject();
+    $resultado = $request->fetchAll(PDO::FETCH_ASSOC);
 
-    if($resultado) {
-        echo json_encode($resultado);
+    if($resultado != false) {
+        echo json_encode(["mensagem" => $resultado[0], 'sucesso']);
     } else {
-        echo json_encode(["mensagem" => 'Usuário não encontrado!']);
+        echo json_encode(["mensagem" => 'Usuario não encontrado!', 'erro']);
     }
+
 
 }

@@ -21,7 +21,7 @@ if($api_acao == 'login' and $api_param == '') {
     $resultado = $request->fetchAll();
 
     if($resultado != false) {
-        echo json_encode(["mensagem" => $resultado[0]["id"], 'sucesso']);
+        echo json_encode(["mensagem" => $resultado[0], 'sucesso']);
     } else {
         echo json_encode(["mensagem" => 'Usuario não encontrado!', 'erro']);
     }
